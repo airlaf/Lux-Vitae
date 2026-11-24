@@ -1,0 +1,50 @@
+.checkout { font-family:Geist,Arial,sans-serif; color:#23231f; }
+.reservation { display:block; text-align:left; max-width:1480px; margin:auto; padding:clamp(112px,10vw,158px) clamp(22px,5vw,84px) 0; }
+.reserve-layout { display:grid; grid-template-columns:minmax(0,1.15fr) minmax(0,1fr); align-items:start; gap:clamp(34px,7vw,110px); }
+.device-portrait { position:sticky; top:98px; margin:0; display:grid; justify-items:center; align-content:center; min-height:480px; height:min(70svh,730px); border-radius:20px; background:radial-gradient(ellipse at 60% 38%,#fff 4%,#f7f6f2 65%,#eeede8); }
+.device-portrait img { width:80%; height:82%; position:absolute; top:6%; object-fit:contain; }
+.device-portrait img.bronze { filter:sepia(.55) saturate(.85) brightness(.92); }
+.device-portrait figcaption { position:absolute; bottom:24px; color:#595951; font-size:13px; }
+.device-portrait figcaption > [aria-hidden="true"] { padding:0 9px; color:#a5a299; }
+.reservation h1,.reservation h2 { text-wrap:initial; font:400 clamp(40px,4.5vw,72px)/1.02 "Feature Display",Georgia,serif; letter-spacing:-.04em; margin:0; }
+#reserve-title img { display:block; width:min(100%, clamp(200px, 23vw, 340px)); height:auto; }
+.reservation p { margin:16px 0 0; font:400 16px/1.55 Geist,sans-serif; color:#5a5a55; letter-spacing:normal; }
+.pricing { border-block:1px solid #deded8; padding:16px 0; margin:26px 0; }
+.pricing div { display:flex; justify-content:space-between; padding:4px 0; }
+.pricing dd { margin:0; }
+.checkout #signup { gap:15px; font:400 14px/1.4 Geist,sans-serif; }
+.checkout #signup fieldset { padding:0; border:0; margin:0 0 5px; }
+.finish-options { display:flex; flex-wrap:wrap; gap:8px; margin-top:9px; }
+.finish-options label { display:flex; align-items:center; cursor:pointer; position:relative; gap:7px; border:1px solid #d6d6d0; border-radius:40px; padding:10px 14px; }
+.finish-options i { display:block; width:18px; height:18px; border-radius:50%; background:center/cover url("figma/stellaris.webp"); }
+.finish-options .bronze { background-image:url("figma/bacchus.webp"); }
+.checkout #signup .finish-options input { position:absolute; width:1px; height:1px; opacity:0; }
+.finish-options label:has(:checked) { border-color:#4b4b45; background:#f7f7f4; }
+.finish-options label:has(:focus-visible) { outline:2px solid #315965; }
+.checkout #signup > label input { display:block; margin-top:5px; height:46px; }
+.checkout #signup .signup-note { margin:0; font-size:14px; }
+.checkout #signup button { position:static; transform:none; width:100%; height:48px; background:#30322e; border-radius:40px; font:inherit; color:white; }
+@media (hover:hover) {
+  .checkout #signup button:hover:enabled { background-color:#3c3e39; }
+}
+.checkout #signup button:focus-visible { outline:2px solid #58625d; outline-offset:3px; }
+@media (prefers-reduced-motion:no-preference) {
+  .checkout #signup button { transition:background-color 160ms ease-out; }
+}
+.product-preview { margin-top:var(--section-gap); scroll-margin-top:96px; }
+.preview-film { display:block; width:100%; height:auto; aspect-ratio:16/9; margin-top:clamp(20px,2.5vw,36px); border-radius:10px; background:#f4f3ef; }
+.reserve-information { max-width:880px; margin:var(--section-gap) auto 0; }
+.reservation h2 { font-size:clamp(32px,3vw,48px); }
+.bens { border-collapse:collapse; width:100%; margin:30px 0; font-size:clamp(13px,1.2vw,16px); }
+.bens th,.bens td { padding:14px 6px; border-bottom:1px solid #deded8; text-align:center; }
+.bens th:first-child,.bens td:first-child { text-align:left; }
+.bens svg { width:16px; fill:none; stroke:currentColor; stroke-width:1.5; }
+.bens .no::before { content:"—"; color:#999; }
+.reserve-information details { border-bottom:1px solid #deded8; padding:19px 0; }
+.reserve-information summary { font-size:18px; cursor:pointer; }
+.checkout-specs { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px 38px; margin:24px 0; }
+.checkout-specs h3 { font-size:16px; margin:0 0 8px; }
+.checkout-specs ul { margin:0; padding:0; list-style:none; }
+.checkout-specs li,.checkout-specs .dim { font-size:14px; color:#565650; line-height:1.6; }
+.checkout-specs .k,.checkout-specs .dim small,.checkout-specs .dim b { margin-right:.5em; }
+@media(max-width:760px) { .reserve-layout { grid-template-columns:1fr; gap:28px; } .device-portrait { position:relative; top:0; min-height:0; height:clamp(245px,36svh,400px); } .reservation { padding-top:90px; } .checkout-specs { grid-template-columns:1fr; } }

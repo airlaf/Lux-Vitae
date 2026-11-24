@@ -1,0 +1,28 @@
+.about-page { display:block; width:100%; max-width:1500px; margin:auto; padding:clamp(130px,12vw,185px) clamp(22px,6vw,88px) 0; text-align:left; font-family:Geist,Arial,sans-serif; }
+.about-page :is(h1,h2,blockquote) { margin:0; font:400 clamp(34px,4vw,60px)/1.07 "Feature Display",Georgia,serif; letter-spacing:-.04em; }
+.about-page p { font:400 clamp(16px,1.35vw,20px)/1.55 Geist,Arial,sans-serif; color:#585852; margin:1em 0 0; }
+.origin-intro { max-width:780px; margin:auto; text-align:center; }
+.origin-intro h1 { font-size:clamp(42px,5.6vw,82px); }
+.origin-intro p { max-width:56ch; margin:24px auto 0; }
+.origin-landscape { position:relative; width:min(100%,109.73svh); margin:clamp(28px,4vw,64px) auto 0; }
+.origin-landscape img { display:block; width:100%; height:auto; }
+.origin-landscape canvas { position:absolute; inset:0; width:100%; height:100%; pointer-events:none; }
+.chapter-emblem { display:block; width:min(100%,clamp(170px,20vw,280px)); height:auto; }
+.origin-chapter { margin-top:var(--section-gap); display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(32px,8vw,130px); align-items:center; }
+.chapter-shot img { width:100%; display:block; aspect-ratio:5/4; object-fit:cover; border-radius:12px; }
+.origin-chapter p { max-width:45ch; }
+.founder-note { max-width:880px; text-align:center; margin:var(--section-gap) auto 0; padding-top:clamp(42px,6vw,88px); border-top:1px solid #dddcd6; }
+.founder-note h2 { font:400 17px/1.4 Geist,sans-serif; letter-spacing:normal; color:#585852; }
+.founder-note figure { margin:28px 0; }
+.founder-note blockquote { font-size:clamp(28px,3.3vw,48px); text-wrap:balance; }
+.founder-note figcaption { margin-top:30px; display:flex; align-items:center; justify-content:center; gap:14px; text-align:left; }
+.founder-note figcaption img { width:52px; height:52px; object-fit:cover; border-radius:50%; }
+.founder-note small { display:block; color:#62625d; margin-top:4px; }
+.founder-note a { text-underline-offset:4px; }
+@media(max-width:700px) {
+  .origin-chapter { grid-template-columns:1fr; gap:24px; }
+  .chapter-shot { order:1; }
+}
+
+/* Each chapter has a single shot, so it opens without a gallery stagger. */
+.chapter-shot.detail-reveal { --shot-delay: 0ms; }

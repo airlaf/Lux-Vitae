@@ -1,0 +1,7 @@
+@media (hover:hover) {
+  .reading-link:hover { opacity:.62; }
+}
+@media (prefers-reduced-motion:no-preference) {
+  .reading-link { transition:opacity 180ms ease-out; }
+}
+.reading-link:focus-visible { outline:2px solid currentColor; outline-offset:4px; }

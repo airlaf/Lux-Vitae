@@ -1,0 +1,27 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1794259658655,
+      "tag": "0000_panoramic_tigra",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1795476348265,
+      "tag": "0001_announcements",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1795476348266,
+      "tag": "0002_waitlist_finish",
+      "breakpoints": true
+    }
+  ]
+}

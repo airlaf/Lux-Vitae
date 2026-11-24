@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2160" height="1216" viewBox="0 0 1080 608">
+  <defs>
+    <linearGradient id="ribbon" x2="0" y2="1" gradientUnits="objectBoundingBox">
+      <stop stop-color="#8e9c97" stop-opacity=".42"/>
+      <stop offset="1" stop-color="#aeb7af" stop-opacity=".03"/>
+    </linearGradient>
+    <radialGradient id="pearl" cx=".34" cy=".3" r=".72">
+      <stop stop-color="#fff"/><stop offset=".53" stop-color="#d1d9d6"/>
+      <stop offset="1" stop-color="#84908d"/>
+    </radialGradient>
+  </defs>
+  <circle cx="70" cy="456" r="17" fill="url(#pearl)" stroke="#89958e" stroke-width="1"/>
+  <path d="M0 514C103 551 189 461 299 497S447 560 572 552C444 568 350 550 273 526S118 557 0 514Z" fill="url(#ribbon)"/>
+  <g fill="none" stroke="#87958f" stroke-width="1.6">
+    <path d="M0 514C103 551 189 461 299 497S447 560 572 552" opacity=".75"/>
+    <path d="M0 516C103 541 178 492 276 515S447 566 572 552" opacity=".36"/>
+  </g>
+</svg>
