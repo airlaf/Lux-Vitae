@@ -4,7 +4,6 @@
 .team-opportunities > img { display:block; width:100%; aspect-ratio:5/4; object-fit:cover; border-radius:12px; }
 @media (min-width:821px) {
   .studio-culture { grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr); }
-  .studio-photo { width:min(100%, clamp(380px, 34vw, 520px)); justify-self:center; }
 }
 .studio-photo { position:relative; overflow:hidden; border-radius:12px; isolation:isolate; }
 .studio-photo::after {
