@@ -45,6 +45,8 @@ export function createGlassOptics(surface, layer) {
 
   return function draw(x, y, strength) {
     if (width !== surface.clientWidth || height !== surface.clientHeight) resize();
+    // The opaque studio canvas is black until the first film frame is painted.
+    if (studio && !document.documentElement.classList.contains('rendered')) strength = 0;
     patch.style.opacity = strength;
     const source = studio || footer;
     if (!strength || !source?.width || !width || !height) return;

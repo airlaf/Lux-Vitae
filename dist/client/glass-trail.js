@@ -5,6 +5,7 @@ function attachTrail(surface) {
   const layer = surface.querySelector('.trail-flutes');
   const shadows = Array.from(layer.children, element => ({element, x:0, y:0}));
   let drawOptics;
+  let lastClientX, lastClientY;
   let x = 0, y = 0, strength = 0, hovering = false, frame = 0, lastTime = 0;
 
   function draw(time) {
@@ -45,6 +46,12 @@ function attachTrail(surface) {
       leave();
       return;
     }
+    // Browsers can report the resting pointer when the page appears beneath it.
+    const moved = event.movementX || event.movementY ||
+      (lastClientX !== undefined && (event.clientX !== lastClientX || event.clientY !== lastClientY));
+    lastClientX = event.clientX;
+    lastClientY = event.clientY;
+    if (!moved) return;
     const bounds = surface.getBoundingClientRect();
     x = event.clientX - bounds.left;
     y = event.clientY - bounds.top;
