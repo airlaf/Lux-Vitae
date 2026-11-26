@@ -1,5 +1,16 @@
 import { Mesh, PlaneGeometry, ShaderMaterial, Vector2 } from './vendor/three.module.js';
 
+// Shared display-space gradient for the sheet and the subdued hardware.
+export const backdropShader = `
+  uniform float warmth;
+  uniform float explodedTone;
+  vec3 backdropAt(vec2 uv) {
+    float light = smoothstep(0.0, 1.0, uv.y * 0.65 + uv.x * 0.35);
+    vec3 stone = mix(vec3(178.,170.,162.), vec3(224.,221.,216.), light) / 255.;
+    vec3 taupe = mix(vec3(79.,73.,70.), vec3(112.,103.,97.), light) / 255.;
+    return mix(vec3(1.), mix(stone, taupe, explodedTone), warmth);
+  }`;
+
 // Draw a screen-aligned sheet behind the model, so opaque hardware covers the lines.
 export function createDraftingGrid() {
   const material = new ShaderMaterial({
@@ -23,8 +34,7 @@ export function createDraftingGrid() {
       uniform vec2 size;
       uniform float spacing;
       uniform float reveal;
-      uniform float warmth;
-      uniform float explodedTone;
+      ${backdropShader}
 
       float rule(float p, float spacing) {
         float distanceToLine = abs(mod(p + spacing * 0.5, spacing) - spacing * 0.5);
@@ -41,12 +51,7 @@ export function createDraftingGrid() {
         float rows = rule(px.y, spacing) * 0.035 + rule(px.y, spacing * 5.0) * 0.027;
         float cols = rule(px.x, spacing) * 0.035 + rule(px.x, spacing * 5.0) * 0.027;
         float ink = max(rows * horizontal, cols * vertical) * edge.x * edge.y;
-        // Display-space colors keep the drafting sheet consistent with the CSS palette.
-        float light = smoothstep(0.0, 1.0, sheet.y * 0.65 + sheet.x * 0.35);
-        vec3 sand = mix(vec3(207.,178.,149.), vec3(235.,219.,202.), light) / 255.;
-        vec3 umber = mix(vec3(104.,80.,65.), vec3(151.,121.,100.), light) / 255.;
-        vec3 paper = mix(vec3(1.), mix(sand, umber, explodedTone), warmth);
-        gl_FragColor = vec4(paper * (1.0 - ink), 1.0);
+        gl_FragColor = vec4(backdropAt(sheet) * (1.0 - ink), 1.0);
       }`
   });
   const sheet = new Mesh(new PlaneGeometry(2, 2), material);

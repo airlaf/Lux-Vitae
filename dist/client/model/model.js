@@ -1,10 +1,11 @@
 import * as T from './vendor/three.module.js';
+import {backdropShader} from './drafting-grid.js';
 import {rigAssembly} from './assembly.js?v=callout3';
 import {perforateFoot} from './perforations.js';
 import {addSteelVisibility} from './steel.js';
 
 // Dimensions in millimetres. The 540 × 304 active area anchors the reconstruction.
-export async function createComputer() {
+export async function createComputer(backdrop) {
   const root = new T.Group();
   const metal = new T.MeshStandardMaterial({color:0xdcd3c1,metalness:1,roughness:.064});
   
@@ -117,9 +118,14 @@ export async function createComputer() {
         material.onBeforeCompile = (shader, renderer) => {
           original.onBeforeCompile(shader, renderer);
           shader.uniforms.calloutWash = washes[group];
-          shader.fragmentShader = 'uniform float calloutWash;\n' + shader.fragmentShader.replace(
+          shader.uniforms.warmth = backdrop.warmth;
+          shader.uniforms.explodedTone = backdrop.explodedTone;
+          shader.vertexShader = 'varying vec4 backdropClip;\n' + shader.vertexShader.replace(
+            '#include <project_vertex>', '#include <project_vertex>\nbackdropClip = gl_Position;'
+          );
+          shader.fragmentShader = backdropShader + '\nvarying vec4 backdropClip;\nuniform float calloutWash;\n' + shader.fragmentShader.replace(
             '#include <colorspace_fragment>',
-            '#include <colorspace_fragment>\ngl_FragColor.rgb = mix(gl_FragColor.rgb, vec3(1.0), calloutWash);'
+            '#include <colorspace_fragment>\ngl_FragColor.rgb = mix(gl_FragColor.rgb, backdropAt(0.5 + 0.5 * backdropClip.xy / backdropClip.w), calloutWash);'
           );
         };
         variants[group].set(original, material);

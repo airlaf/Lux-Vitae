@@ -18,7 +18,7 @@ try {
   scene.add(grid);
   scene.background=new T.Color(0xffffff);
   scene.environment=lightStudio(renderer).texture;
-  const {root,explode,anchors,setFinish,emphasize,sides,profiles}=await createComputer();
+  const {root,explode,anchors,setFinish,emphasize,sides,profiles}=await createComputer(grid.material.uniforms);
   scene.add(root);
   root.position.y=-190;
   const camera=new T.PerspectiveCamera(23,1,1,5000);
@@ -70,9 +70,10 @@ try {
     // Divide the remaining pinned distance into one reading interval per part.
     const start=(section.offsetHeight-4*h)*(reducedMotion.matches?1:.93);
     const end=section.offsetHeight-h;
-    const sequence=T.MathUtils.clamp((-sectionTop-start)/(end-start),0,1)*anchors.length;
-    // Let the last callout resolve to white before the product details and waitlist.
-    const release = T.MathUtils.smoothstep(sequence / anchors.length, .84, 1);
+    const sequence=T.MathUtils.clamp((-sectionTop-start)/(end-start-1.3*h),0,1)*anchors.length;
+    // Reserve the exit for a gradual dissolve after the final part is introduced.
+    const release = T.MathUtils.smoothstep(-sectionTop, end - 1.65*h, end);
+    host.style.setProperty('--callout-opacity', 1 - T.MathUtils.smoothstep(release, 0, .24));
     grid.material.uniforms.warmth.value = T.MathUtils.smoothstep(progress, .12, .38) * (1 - release);
     grid.material.uniforms.explodedTone.value = diagram;
     const active=-sectionTop<start?-1:Math.min(anchors.length-1,Math.floor(sequence));
