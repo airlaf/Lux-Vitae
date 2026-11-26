@@ -3,12 +3,10 @@ import { Mesh, PlaneGeometry, ShaderMaterial, Vector2 } from './vendor/three.mod
 // Shared display-space gradient for the sheet and the subdued hardware.
 export const backdropShader = `
   uniform float warmth;
-  uniform float explodedTone;
   vec3 backdropAt(vec2 uv) {
     float light = smoothstep(0.0, 1.0, uv.y * 0.65 + uv.x * 0.35);
     vec3 stone = mix(vec3(178.,170.,162.), vec3(224.,221.,216.), light) / 255.;
-    vec3 taupe = mix(vec3(79.,73.,70.), vec3(112.,103.,97.), light) / 255.;
-    return mix(vec3(1.), mix(stone, taupe, explodedTone), warmth);
+    return mix(vec3(1.), stone, warmth);
   }`;
 
 // Draw a screen-aligned sheet behind the model, so opaque hardware covers the lines.
@@ -18,8 +16,7 @@ export function createDraftingGrid() {
       size: { value: new Vector2() },
       spacing: { value: 24 },
       reveal: { value: 0 },
-      warmth: { value: 0 },
-      explodedTone: { value: 0 }
+      warmth: { value: 0 }
     },
     depthTest: false,
     depthWrite: false,

@@ -17,9 +17,9 @@ html, body { margin: 0; background: white }
 #view #poster { left:0; width:49% }
 .story-line { display:block }
 #view:has(.callouts:not([hidden])) .story { visibility:hidden }
-.callouts { inset:0; color:white; opacity:var(--callout-opacity,1) }
+.callouts { inset:0; opacity:var(--callout-opacity,1) }
 .callouts svg { position:absolute; inset:0; width:100%; height:100%; overflow:hidden }
-.callouts path { stroke:rgb(255 255 255 / 76%); stroke-width:1; stroke-dasharray:1.7 4; stroke-linecap:round; fill:none }
+.callouts path { stroke:currentColor; stroke-opacity:.6; stroke-width:1; stroke-dasharray:1.7 4; stroke-linecap:round; fill:none }
 .callouts span { position:absolute; max-width:17.5%; font-size:clamp(12px,1.1vw,18px); line-height:1.22; letter-spacing:-.025em; transform:translateY(-50%) }
 .callouts small { display:block; margin-top:4px; max-width:28ch; color:inherit; font:400 clamp(11px,.87vw,14px)/1.35 Geist,sans-serif; letter-spacing:normal }
 .callouts span:nth-of-type(-n+2) { left:4% }

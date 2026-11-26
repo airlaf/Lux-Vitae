@@ -119,7 +119,6 @@ export async function createComputer(backdrop) {
           original.onBeforeCompile(shader, renderer);
           shader.uniforms.calloutWash = washes[group];
           shader.uniforms.warmth = backdrop.warmth;
-          shader.uniforms.explodedTone = backdrop.explodedTone;
           shader.vertexShader = 'varying vec4 backdropClip;\n' + shader.vertexShader.replace(
             '#include <project_vertex>', '#include <project_vertex>\nbackdropClip = gl_Position;'
           );

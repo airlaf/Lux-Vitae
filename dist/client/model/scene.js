@@ -75,7 +75,6 @@ try {
     const release = T.MathUtils.smoothstep(-sectionTop, end - 1.65*h, end);
     host.style.setProperty('--callout-opacity', 1 - T.MathUtils.smoothstep(release, 0, .24));
     grid.material.uniforms.warmth.value = T.MathUtils.smoothstep(progress, .12, .38) * (1 - release);
-    grid.material.uniforms.explodedTone.value = diagram;
     const active=-sectionTop<start?-1:Math.min(anchors.length-1,Math.floor(sequence));
     const phase=sequence-active;
     const strength=active<0?0:T.MathUtils.smoothstep(sequence,0,.2);
