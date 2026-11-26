@@ -3,7 +3,8 @@
 .studio-culture,.team-opportunities { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(28px,7vw,110px); align-items:center; }
 .team-opportunities > img { display:block; width:100%; aspect-ratio:5/4; object-fit:cover; border-radius:12px; }
 @media (min-width:821px) {
-  .studio-culture { grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr); }
+  .studio-culture { grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr); align-items:stretch; }
+  .studio-culture .studio-photo > img { position:absolute; inset:0; height:100%; object-fit:cover; }
 }
 .studio-photo { position:relative; overflow:hidden; border-radius:12px; isolation:isolate; }
 .studio-photo::after {
