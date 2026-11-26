@@ -2,14 +2,15 @@
 .about-page :is(h1,h2,blockquote) { margin:0; font:400 clamp(34px,4vw,60px)/1.07 "Neue Haas Grotesk Display", Arial, sans-serif; letter-spacing:-.04em; }
 .about-page p { font:400 clamp(16px,1.35vw,20px)/1.55 Geist,Arial,sans-serif; color:#585852; margin:1em 0 0; }
 .origin-intro { max-width:780px; margin:auto; text-align:center; }
-.origin-intro h1 { font-size:clamp(42px,5.6vw,82px); }
+.origin-intro h1 { font-size:clamp(34px,4.2vw,62px); }
 .origin-intro p { max-width:56ch; margin:24px auto 0; }
 .origin-landscape { position:relative; left:50%; transform:translateX(-50%); width:min(96vw,1800px); margin:clamp(28px,4vw,64px) 0 0; }
 .origin-landscape img { display:block; width:100%; height:auto; }
 .origin-landscape canvas { position:absolute; inset:0; width:100%; height:100%; pointer-events:none; }
-.chapter-emblem { display:block; width:min(100%,clamp(170px,20vw,280px)); height:auto; }
+.chapter-emblem { display:block; width:min(100%,clamp(135px,15vw,210px)); height:auto; }
 .origin-chapter { margin-top:var(--section-gap); display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(32px,8vw,130px); align-items:center; }
 .chapter-shot img { width:100%; display:block; aspect-ratio:5/4; object-fit:cover; border-radius:12px; }
+.origin-chapter h2 { font-size:clamp(28px,3vw,44px); }
 .origin-chapter p { max-width:45ch; }
 .founder-note { max-width:880px; text-align:center; margin:var(--section-gap) auto 0; padding-top:clamp(42px,6vw,88px); border-top:1px solid #dddcd6; }
 .founder-note h2 { font:400 17px/1.4 Geist,sans-serif; letter-spacing:normal; color:#585852; }
