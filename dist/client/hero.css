@@ -32,7 +32,7 @@ body { margin: 0; color: #080808; background: white; font-family: "Helvetica Neu
 }
 .site-header .brand { gap: 0; min-width: 0; }
 .site-header nav { gap: clamp(4px, 1vw, 16px); font: 400 15px/1.2 Geist, sans-serif; }
-.site-header nav a { display: inline-grid; place-items: center; min-height: 44px; border-radius: 100px; white-space: nowrap; }
+.site-header nav a { color: #9c9893; display: inline-grid; place-items: center; min-height: 44px; border-radius: 100px; white-space: nowrap; }
 .site-header nav a:not(.pill) { padding-inline: clamp(9px, 1.4vw, 22px); }
 .site-header nav a:not(.pill):hover { opacity: .62; text-decoration: none; }
 .site-header.nav-away:not(:has(:focus-visible)) { transform: translateY(calc(-100% - 24px)); }
