@@ -19,8 +19,6 @@
   display:block;
   width:100%;
   height:auto;
-  transform:scale(1.9);
-  transform-origin:32% 14%;
   filter:grayscale(1) contrast(1.15);
 }
 .studio-culture p,.team-opportunities p { max-width:47ch; margin:20px 0 0; font:400 clamp(16px,1.35vw,20px)/1.55 Geist,sans-serif; color:#565651; }
