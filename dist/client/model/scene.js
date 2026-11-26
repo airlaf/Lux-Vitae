@@ -83,14 +83,14 @@ try {
     feet.forEach((foot,i)=>foot.position.x=(i?1:-1)*(278+72*T.MathUtils.smoothstep(amount,0,.64)));
     const turn = T.MathUtils.smoothstep(progress,.27,.66);
     const angle = .68 + yaw + (2*Math.PI + .39 - .68)*turn;
-    const elevation=T.MathUtils.clamp(.38 + pitch - .15*turn,-.06,1.52);
+    const elevation=T.MathUtils.clamp(.23 + pitch,-.06,1.52);
     const assembly = T.MathUtils.smoothstep(progress, .76, .88);
     const stacked = narrow.matches;
     const aspect = host.clientWidth / host.clientHeight;
     const readingDistance = Math.max(1670, 3330 / aspect);
     const diagramDistance = stacked ? Math.max(2820, 2080 / aspect) : readingDistance;
     const distance = T.MathUtils.lerp(readingDistance, diagramDistance, assembly);
-    const lift = T.MathUtils.lerp(stacked ? .055 : .095, -.045, turn);
+    const lift = -.045;
     camera.setViewOffset(w, h, w * .195 * (1 - assembly), h * lift, w, h);
     const targetY = -8;
     camera.position.set(distance*Math.cos(elevation)*Math.sin(angle),targetY+8+distance*Math.sin(elevation),distance*Math.cos(elevation)*Math.cos(angle)-22);
