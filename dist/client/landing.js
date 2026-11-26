@@ -1,10 +1,4 @@
 import {splitWords,revealWords} from './word-reveal.js';
-const partners = document.querySelector('.logos');
-const repeatedLogos = partners.firstElementChild.cloneNode(true);
-repeatedLogos.setAttribute('aria-hidden', 'true');
-partners.append(repeatedLogos);
-partners.classList.add('looping');
-
 const section = document.querySelector('#antik-section');
 const observer = new IntersectionObserver(entries => {
   if (entries.some(entry => entry.isIntersecting)) {
