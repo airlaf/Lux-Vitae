@@ -115,58 +115,11 @@ p { margin: 1.88vw 0 0; font-size: clamp(14px, 1.5vw, 20px); line-height: 1.4; l
       transparent calc(50% + var(--screen-radius, 34vw) - 4vw),
       rgb(0 0 0 / 80%) calc(50% + var(--screen-radius, 34vw) + 5vw));
 }
-/* Broad reflections cross the flutes, leaving only a fine highlight at each lip. */
-.hero { --flute-pitch: clamp(10px, 1.08vw, 18px); }
 .hero::before {
-  background-image:
-    linear-gradient(90deg, #52473d1c, #6956470a 13%, transparent 30%,
-      transparent 72%, #fffdf621 83%, #fffefa88 89%, #69564715 96%, transparent),
-    radial-gradient(ellipse 36% 64% at 1% 67%, #80644d32, transparent),
-    radial-gradient(ellipse 24% 80% at 100% 13%, #544c432e, transparent);
-  background-size: var(--flute-pitch) 100%, 100% 100%, 100% 100%;
+  background-image: linear-gradient(90deg, #52473d1c, #6956470a 13%, transparent 30%,
+    transparent 72%, #fffdf621 83%, #fffefa88 89%, #69564715 96%, transparent);
+  background-size: clamp(10px, 1.08vw, 18px) 100%;
 }
-.glass-daylight {
-  position: absolute;
-  inset: -4%;
-  z-index: -2;
-  pointer-events: none;
-  background:
-    radial-gradient(ellipse 75% 92% at 68% 13%, #fff9ef4d, transparent),
-    radial-gradient(ellipse 59% 84% at 10% 72%, #fffdf731, transparent);
-}
-.intro .glass-daylight { opacity: var(--glass-opacity, 0); }
-@media (any-hover: hover) and (any-pointer: fine) and (prefers-reduced-motion: no-preference) {
-  .glass-daylight {
-    transform: translate(var(--light-x, 0%), var(--light-y, 0%));
-    transition: transform 650ms ease-out;
-  }
-}
-.foliage-shadow {
-  --shadow-opacity: .47;
-  position: absolute;
-  inset: 0;
-  z-index: -2;
-  pointer-events: none;
-  background: url("foliage-shadow.jpg") center 46% / cover no-repeat;
-  filter: grayscale(1) sepia(.72) contrast(1.02) blur(2.4px);
-  mix-blend-mode: multiply;
-  opacity: var(--shadow-opacity);
-  mask-image:
-    radial-gradient(ellipse 48% 84% at 0% 40%, black, transparent),
-    radial-gradient(ellipse 39% 74% at 100% 8%, #000c, transparent);
-}
-/* Blend a displaced sample into each curved flute face. Both samples share
-   the same crop, so resizing keeps the refraction aligned with the ribs. */
-.foliage-shadow::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: inherit;
-  background-position: calc(50% + var(--flute-pitch) * .48) calc(46% - 2px);
-  mask-image: linear-gradient(90deg, transparent, #0003 25%, #000c 65%, black 84%, transparent);
-  mask-size: var(--flute-pitch) 100%;
-}
-.intro .foliage-shadow { opacity: calc(var(--shadow-opacity) * var(--glass-opacity, 0)); }
 .glass-optics { position:absolute; left:0; top:0; pointer-events:none; mask-image:radial-gradient(ellipse closest-side,black 8%,#000b 48%,transparent 100%); }
 .trail-flutes {
   position:absolute; inset:0; opacity:0;
