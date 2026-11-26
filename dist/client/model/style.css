@@ -19,7 +19,7 @@ html, body { margin: 0; background: white }
 .callouts { inset:0 }
 .callouts svg { position:absolute; inset:0; width:100%; height:100%; overflow:hidden }
 .callouts path { stroke:#777771; stroke-width:1; stroke-dasharray:1.7 4; stroke-linecap:round; fill:none }
-.callouts span { position:absolute; max-width:17.5%; font-size:clamp(12px,1.1vw,18px); line-height:1.22; letter-spacing:-.025em; transform:translateY(-50%); background:#fff }
+.callouts span { position:absolute; max-width:17.5%; font-size:clamp(12px,1.1vw,18px); line-height:1.22; letter-spacing:-.025em; transform:translateY(-50%); background:rgb(255 252 248 / 94%); padding:5px 8px; border-radius:4px }
 .callouts small { display:block; margin-top:4px; max-width:28ch; color:#585853; font:400 clamp(11px,.87vw,14px)/1.35 Geist,sans-serif; letter-spacing:normal }
 .callouts span:nth-of-type(-n+2) { left:4% }
 .callouts span:nth-of-type(n+3) { right:4%; text-align:left }

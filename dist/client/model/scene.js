@@ -71,6 +71,10 @@ try {
     const start=(section.offsetHeight-4*h)*(reducedMotion.matches?1:.93);
     const end=section.offsetHeight-h;
     const sequence=T.MathUtils.clamp((-sectionTop-start)/(end-start),0,1)*anchors.length;
+    // Let the last callout resolve to white before the product details and waitlist.
+    const release = T.MathUtils.smoothstep(sequence / anchors.length, .84, 1);
+    grid.material.uniforms.warmth.value = T.MathUtils.smoothstep(progress, .12, .38) * (1 - release);
+    grid.material.uniforms.explodedTone.value = diagram;
     const active=-sectionTop<start?-1:Math.min(anchors.length-1,Math.floor(sequence));
     const phase=sequence-active;
     const strength=active<0?0:T.MathUtils.smoothstep(sequence,0,.2);

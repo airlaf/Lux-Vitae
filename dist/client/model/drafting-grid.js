@@ -6,7 +6,9 @@ export function createDraftingGrid() {
     uniforms: {
       size: { value: new Vector2() },
       spacing: { value: 24 },
-      reveal: { value: 0 }
+      reveal: { value: 0 },
+      warmth: { value: 0 },
+      explodedTone: { value: 0 }
     },
     depthTest: false,
     depthWrite: false,
@@ -21,6 +23,8 @@ export function createDraftingGrid() {
       uniform vec2 size;
       uniform float spacing;
       uniform float reveal;
+      uniform float warmth;
+      uniform float explodedTone;
 
       float rule(float p, float spacing) {
         float distanceToLine = abs(mod(p + spacing * 0.5, spacing) - spacing * 0.5);
@@ -37,8 +41,12 @@ export function createDraftingGrid() {
         float rows = rule(px.y, spacing) * 0.035 + rule(px.y, spacing * 5.0) * 0.027;
         float cols = rule(px.x, spacing) * 0.035 + rule(px.x, spacing * 5.0) * 0.027;
         float ink = max(rows * horizontal, cols * vertical) * edge.x * edge.y;
-        // Values are authored in display space for a quiet graphite-on-white finish.
-        gl_FragColor = vec4(vec3(1.0) - ink * vec3(0.93, 0.96, 1.0), 1.0);
+        // Display-space colors keep the drafting sheet consistent with the CSS palette.
+        float light = smoothstep(0.0, 1.0, sheet.y * 0.65 + sheet.x * 0.35);
+        vec3 sand = mix(vec3(207.,178.,149.), vec3(235.,219.,202.), light) / 255.;
+        vec3 umber = mix(vec3(104.,80.,65.), vec3(151.,121.,100.), light) / 255.;
+        vec3 paper = mix(vec3(1.), mix(sand, umber, explodedTone), warmth);
+        gl_FragColor = vec4(paper * (1.0 - ink), 1.0);
       }`
   });
   const sheet = new Mesh(new PlaneGeometry(2, 2), material);
