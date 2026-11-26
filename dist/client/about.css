@@ -1,6 +1,6 @@
 .about-page { display:block; width:100%; max-width:1500px; margin:auto; padding:clamp(130px,12vw,185px) clamp(22px,6vw,88px) 0; text-align:left; font-family:Geist,Arial,sans-serif; }
 .about-page :is(h1,h2,blockquote) { margin:0; font:400 clamp(34px,4vw,60px)/1.07 "Neue Haas Grotesk Display", Arial, sans-serif; letter-spacing:-.04em; }
-.about-page p { font:400 clamp(16px,1.35vw,20px)/1.55 Geist,Arial,sans-serif; color:var(--subtitle-color); margin:1em 0 0; }
+.about-page p { font:400 clamp(16px,1.35vw,20px)/1.55 Geist,Arial,sans-serif; color:#585852; margin:1em 0 0; }
 .origin-intro { max-width:780px; margin:auto; text-align:center; }
 .origin-intro h1 { font-size:clamp(34px,4.2vw,62px); }
 .origin-intro p { max-width:56ch; margin:24px auto 0; }
@@ -13,12 +13,12 @@
 .origin-chapter h2 { font-size:clamp(28px,3vw,44px); }
 .origin-chapter p { max-width:45ch; }
 .founder-note { max-width:880px; text-align:center; margin:var(--section-gap) auto 0; padding-top:clamp(42px,6vw,88px); border-top:1px solid #dddcd6; }
-.founder-note h2 { font:400 17px/1.4 Geist,sans-serif; letter-spacing:normal; color:var(--heading-color); }
+.founder-note h2 { font:400 17px/1.4 Geist,sans-serif; letter-spacing:normal; color:#585852; }
 .founder-note figure { margin:28px 0; }
 .founder-note blockquote { font-size:clamp(28px,3.3vw,48px); text-wrap:balance; }
 .founder-note figcaption { margin-top:30px; display:flex; align-items:center; justify-content:center; gap:14px; text-align:left; }
 .founder-note figcaption img { width:52px; height:52px; object-fit:cover; border-radius:50%; }
-.founder-note small { display:block; color:var(--subtitle-color); margin-top:4px; }
+.founder-note small { display:block; color:#62625d; margin-top:4px; }
 .founder-note a { text-underline-offset:4px; }
 @media(max-width:700px) {
   .origin-chapter { grid-template-columns:1fr; gap:24px; }

@@ -3,7 +3,7 @@
 .studio-culture,.team-opportunities { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(28px,7vw,110px); align-items:center; }
 .studio-culture > img,.team-opportunities > img { display:block; width:100%; aspect-ratio:5/4; object-fit:cover; border-radius:12px; }
 .studio-culture > img { filter:grayscale(1) contrast(1.15); }
-.studio-culture p,.team-opportunities p { max-width:47ch; margin:20px 0 0; font:400 clamp(16px,1.35vw,20px)/1.55 Geist,sans-serif; color:var(--subtitle-color); }
+.studio-culture p,.team-opportunities p { max-width:47ch; margin:20px 0 0; font:400 clamp(16px,1.35vw,20px)/1.55 Geist,sans-serif; color:#565651; }
 .team-gallery,.team-opportunities { margin-top:var(--section-gap); }
 .team-opportunities a { display:inline-flex; align-items:center; gap:8px; padding-block:10px; margin-top:10px; text-decoration:none; transition:opacity 180ms ease; }
 .team-opportunities a:is(:hover,:focus-visible) { opacity:.62; }
@@ -20,7 +20,7 @@
 .portrait .sand { opacity:0; pointer-events:none; }
 .person { display:flex; justify-content:space-between; align-items:center; gap:12px; padding:16px 1px 0; }
 .person h3 { font-size:clamp(26px,2.4vw,38px); }
-.person p { margin:4px 0 0; font:400 15px/1.4 Geist,sans-serif; color:var(--subtitle-color); }
+.person p { margin:4px 0 0; font:400 15px/1.4 Geist,sans-serif; color:#62625d; }
 .person a { display:grid; place-items:center; width:44px; height:44px; flex:none; opacity:.7; }
 .person a:is(:hover,:focus-visible) { opacity:1; }
 @media(max-width:700px) {
