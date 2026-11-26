@@ -90,7 +90,7 @@ try {
     const readingDistance = Math.max(1670, 3330 / aspect);
     const diagramDistance = stacked ? Math.max(2820, 2080 / aspect) : readingDistance;
     const distance = T.MathUtils.lerp(readingDistance, diagramDistance, assembly);
-    const lift = -.045;
+    const lift = T.MathUtils.lerp(stacked ? .055 : .095, -.045, turn);
     camera.setViewOffset(w, h, w * .195 * (1 - assembly), h * lift, w, h);
     const targetY = -8;
     camera.position.set(distance*Math.cos(elevation)*Math.sin(angle),targetY+8+distance*Math.sin(elevation),distance*Math.cos(elevation)*Math.cos(angle)-22);
