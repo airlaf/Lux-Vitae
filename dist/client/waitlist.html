@@ -26,7 +26,7 @@
 <label><input type="radio" name="finish" value="bronze"><i class="bronze"></i>Bacchus Bronze</label></div></fieldset>
 <label>Your name<input name="name" autocomplete="name" placeholder="Full name" maxlength="100" required></label>
 <label>Email address<input name="email" type="email" autocomplete="email" placeholder="you@example.com" maxlength="254" required></label>
-<label>How did you hear about us? (optional)
+<label>How did you hear about us? <span class="optional-marker">(optional)</span>
   <select name="referral_source">
     <option value="">Select a source</option>
     <option>Friend or colleague</option>
@@ -40,10 +40,10 @@
     <option>Other</option>
   </select>
 </label>
-<label id="referrer-field" hidden>Friend or colleague’s name (optional)
+<label id="referrer-field" hidden>Friend or colleague’s name <span class="optional-marker">(optional)</span>
   <input name="referrer_name" maxlength="100" autocomplete="off" disabled>
 </label>
-<label>Profession (optional)<input name="profession" autocomplete="organization-title" maxlength="100" placeholder="Your profession"></label>
+<label>Profession <span class="optional-marker">(optional)</span><input name="profession" autocomplete="organization-title" maxlength="100" placeholder="Your profession"></label>
 <p class="signup-note">Leave your details for the waitlist. Paid reservations will open separately.</p>
 <button type="submit">Join Waitlist</button><output aria-live="polite"></output>
 </form></section></div>
