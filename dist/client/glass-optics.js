@@ -11,7 +11,9 @@ export function createGlassOptics(surface, layer) {
   function resize() {
     width = surface.clientWidth;
     height = surface.clientHeight;
-    pitch = Math.min(36, Math.max(21, innerWidth * .0225));
+    pitch = studio
+      ? parseFloat(getComputedStyle(layer).maskSize)
+      : Math.min(36, Math.max(21, innerWidth * .0225));
     radius = Math.min(215, Math.max(125, innerWidth * .15));
     patch.width = Math.ceil(radius * 2);
     patch.height = Math.ceil(radius * 1.55);
