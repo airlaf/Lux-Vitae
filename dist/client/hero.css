@@ -116,9 +116,13 @@ p { margin: 1.88vw 0 0; font-size: clamp(14px, 1.5vw, 20px); line-height: 1.4; l
       rgb(0 0 0 / 80%) calc(50% + var(--screen-radius, 34vw) + 5vw));
 }
 .hero::before {
-  background-image: linear-gradient(90deg, #52473d1c, #6956470a 13%, transparent 30%,
-    transparent 72%, #fffdf621 83%, #fffefa88 89%, #69564715 96%, transparent);
-  background-size: clamp(10px, 1.08vw, 18px) 100%;
+  background-image:
+    linear-gradient(90deg, #52473d1c, #6956470a 13%, transparent 30%,
+      transparent 72%, #fffdf621 83%, #fffefa88 89%, #69564715 96%, transparent),
+    radial-gradient(ellipse 38% 54% at 4% 42%, #59483b47, #69574b17 55%, transparent),
+    radial-gradient(ellipse 34% 43% at 86% -4%, #514a4938, transparent),
+    radial-gradient(ellipse 27% 48% at 99% 65%, #77604d40, transparent);
+  background-size: clamp(10px, 1.08vw, 18px) 100%, 100% 100%, 100% 100%, 100% 100%;
 }
 .glass-optics { position:absolute; left:0; top:0; pointer-events:none; mask-image:radial-gradient(ellipse closest-side,black 8%,#000b 48%,transparent 100%); }
 .trail-flutes {
