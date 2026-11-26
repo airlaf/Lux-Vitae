@@ -19,16 +19,22 @@ export default {
     } else {
       const referral = String(form.get('referral_source') || '').trim() || null;
       const profession = String(form.get('profession') || '').trim() || null;
+      const referrerName = referral === 'Friend or colleague' ? String(form.get('referrer_name') || '').trim() || null : null;
+      if (referrerName && referrerName.length > 100) return Response.json({ok: false}, {status: 400});
       if ((referral && !referralSources.has(referral)) || (profession && profession.length > 100)) {
         return Response.json({ok: false}, {status: 400});
       }
-      await env.DB.prepare(`INSERT INTO signups (email, name, interest, consent_at, finish, referral_source, profession)
-        VALUES (?, ?, ?, ?, ?, ?, ?)
+      await env.DB.prepare(`INSERT INTO signups (email, name, interest, consent_at, finish, referral_source, profession, referrer_name)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?)
         ON CONFLICT(email) DO UPDATE SET
           finish = COALESCE(excluded.finish, signups.finish),
           referral_source = COALESCE(excluded.referral_source, signups.referral_source),
+          referrer_name = CASE
+            WHEN excluded.referral_source IS NULL THEN signups.referrer_name
+            WHEN excluded.referral_source = 'Friend or colleague' THEN COALESCE(excluded.referrer_name, signups.referrer_name)
+            ELSE NULL END,
           profession = COALESCE(excluded.profession, signups.profession)`)
-        .bind(email, name, 'waitlist', new Date().toISOString(), finish, referral, profession).run();
+        .bind(email, name, 'waitlist', new Date().toISOString(), finish, referral, profession, referrerName).run();
     }
     return Response.json({ok: true});
   }
