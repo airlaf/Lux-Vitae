@@ -84,8 +84,8 @@ h1 { margin: 0; font-size: clamp(36px, 5.4vw, 64px); font-weight: 400; letter-sp
 p { margin: 1.88vw 0 0; font-size: clamp(14px, 1.5vw, 20px); line-height: 1.4; letter-spacing: -.025em; }
 @media (max-width: 700px) {
   .site-header { min-height: 56px; margin: 10px 8px 0; padding: 4px 8px; gap: 4px; }
-  .site-header .brand .wordmark { width: clamp(86px, 30vw, 160px); }
-  .site-header nav { flex:none; gap:0; font-size:13px; }
+  .site-header .brand .wordmark { width: clamp(120px, 39vw, 176px); }
+  .site-header nav { flex:none; gap:0; font-size:clamp(9px, 2.45vw, 11px); }
   .site-header .brand img:first-child { flex:none; }
   .site-header nav a:not(.pill) { padding-inline: 8px; }
   .site-header nav .pill { padding-inline: 12px; }
@@ -168,15 +168,15 @@ html.intro, html.intro body { overflow: clip; height: 100svh; }
   .hero .film-stage::after { height:min(12vw,10svh); }
 }
 @media (max-width: 700px) and (orientation: portrait) {
-  .hero { min-height: 0; }
-  .hero main { flex: none; }
+  .hero { min-height: 100dvh; }
+  .hero main { justify-content: flex-end; padding-top: 32px; }
   .hero .film-stage {
     flex: none;
-    height: 46vw;
+    height: 58vw;
     min-height: 0;
     margin-top: clamp(8px, 2vw, 14px);
   }
-  .hero .product { top: 0; }
+  .hero .product { top: 0; height: 88vw; }
 }
 
 .film-stage::after {
