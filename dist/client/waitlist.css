@@ -6,7 +6,7 @@
 .device-portrait img.bronze { filter:sepia(.55) saturate(.85) brightness(.92); }
 .device-portrait figcaption { position:absolute; bottom:24px; color:#595951; font-size:13px; }
 .device-portrait figcaption > [aria-hidden="true"] { padding:0 9px; color:#a5a299; }
-.reservation h1,.reservation h2 { text-wrap:initial; font:400 clamp(40px,4.5vw,72px)/1.02 "Feature Display",Georgia,serif; letter-spacing:-.04em; margin:0; }
+.reservation h1,.reservation h2 { text-wrap:initial; font:400 clamp(40px,4.5vw,72px)/1.02 "Neue Haas Grotesk Display", Arial, sans-serif; letter-spacing:-.04em; margin:0; }
 #reserve-title img { display:block; width:min(100%, clamp(200px, 23vw, 340px)); height:auto; }
 .reservation p { margin:16px 0 0; font:400 16px/1.55 Geist,sans-serif; color:#5a5a55; letter-spacing:normal; }
 .pricing { border-block:1px solid #deded8; padding:16px 0; margin:26px 0; }

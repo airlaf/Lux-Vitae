@@ -9,7 +9,7 @@
 }
 .manifesto-page h1 {
   margin:0 0 clamp(2.25rem,5vw,4rem);
-  font:400 clamp(3rem,6vw,5.25rem)/1.03 "Feature Display",Georgia,serif;
+  font:400 clamp(3rem,6vw,5.25rem)/1.03 "Neue Haas Grotesk Display", Arial, sans-serif;
   letter-spacing:-.045em;
 }
 .manifesto-page p {
@@ -22,7 +22,7 @@
 .manifesto-page .closing {
   margin-top:1.4em;
   color:#24251f;
-  font:400 clamp(1.65rem,3.2vw,2.5rem)/1.2 "Feature Display",Georgia,serif;
+  font:400 clamp(1.65rem,3.2vw,2.5rem)/1.2 "Neue Haas Grotesk Display", Arial, sans-serif;
   letter-spacing:-.032em;
   text-wrap:balance;
 }

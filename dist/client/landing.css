@@ -1,11 +1,11 @@
-#join h2 { font-family: "Feature Display", Georgia, serif; font-size: clamp(28px, 2.92vw, 46px); font-weight: 400; letter-spacing: -.045em; margin: 0; }
+#join h2 { font-family: "Neue Haas Grotesk Display", Arial, sans-serif; font-size: clamp(28px, 2.92vw, 46px); font-weight: 400; letter-spacing: -.045em; margin: 0; }
 #join { text-align: center; margin-inline: auto; margin-top: var(--section-gap); padding: 0; }
 .waitlist-scene { position: relative; isolation: isolate; aspect-ratio: 1435 / 876; display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: clamp(36px, 5vw, 80px) 4% 2.65%; }
 .waitlist-art { position: absolute; inset: 0; z-index: -1; width: 100%; height: 100%; object-fit: cover; clip-path: inset(var(--art-inset, 0%) round var(--art-radius, 0px)); }
 .waitlist-color { opacity: var(--art-color, 1); background: white; }
 #join-title { line-height: clamp(70px, 6.9vw, 110px); }
 .waitlist-invite .pill { margin: auto; cursor: pointer; }
-#signup-title { margin: 0; font: 400 clamp(21px, 1.67vw, 27px)/1.15 "Feature Display", Georgia, serif; }
+#signup-title { margin: 0; font: 400 clamp(21px, 1.67vw, 27px)/1.15 "Neue Haas Grotesk Display", Arial, sans-serif; }
 #signup-dialog { width: min(440px, 92vw); border: 0; border-radius: 18px; padding: 32px; box-shadow: 0 12px 60px #0002; }
 #signup-dialog::backdrop { background: #14120f55; }
 #signup-title { margin-bottom: 22px; }
@@ -53,7 +53,7 @@
 .human-film h2, .human-film p { position: absolute; z-index: 1; margin: 0; pointer-events: none; }
 .human-film h2 {
   top: 5.18%; left: 3.75%;
-  font: 400 42px/100px "Feature Display", Georgia, serif;
+  font: 400 42px/100px "Neue Haas Grotesk Display", Arial, sans-serif;
 }
 .human-film p {
   right: 3.95%; bottom: 6.28%; width: min(542px, 72%);
@@ -84,7 +84,7 @@ html.details-holding, html.details-holding body { overflow-y: hidden; }
   padding-inline: clamp(16px, 3vw, 48px);
   font-family: Geist, sans-serif;
 }
-.product-details h2 { margin: 0; font: 400 42px/100px "Feature Display", Georgia, serif; }
+.product-details h2 { margin: 0; font: 400 42px/100px "Neue Haas Grotesk Display", Arial, sans-serif; }
 .product-details p { margin: 0; letter-spacing: normal; color: #6b6b6b; }
 .product-details .details-intro { max-width: 619px; font-size: 21px; line-height: 28px; }
 .details-grid {
@@ -137,7 +137,7 @@ html.details-holding, html.details-holding body { overflow-y: hidden; }
 .footer-brand img:first-child { width: 26px; }
 .footer-brand .wordmark { width: clamp(190px, 16vw, 250px); }
 .footer-layout { margin-top: clamp(28px, 4vw, 62px); display: grid; grid-template-columns: 1fr 1fr; gap: 8vw; }
-.footer-layout h2 { margin: 0; font: 400 clamp(32px, 3vw, 48px)/1.1 "Feature Display", Georgia, serif; letter-spacing: -.035em; }
+.footer-layout h2 { margin: 0; font: 400 clamp(32px, 3vw, 48px)/1.1 "Neue Haas Grotesk Display", Arial, sans-serif; letter-spacing: -.035em; }
 .footer-layout p { margin: 14px 0 24px; color: #626260; font-size: 16px; }
 .updates-field { display: flex; max-width: 400px; border: 1px solid #d8d7d4; border-radius: 10px; background: #fafaf9; }
 .updates-field:focus-within { outline: 2px solid #626969; outline-offset: 2px; }
