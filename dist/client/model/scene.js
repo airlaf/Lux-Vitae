@@ -52,7 +52,7 @@ try {
   const story=createStory(host);
   const drawElevation=createElevation(host,profiles,root,sides);
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
-  const narrow=matchMedia('(max-width:700px) and (orientation:portrait)');
+  const narrow=matchMedia('(max-width:1024px) and (orientation:portrait)');
   let yaw=0,pitch=0,drag=null,scheduled=false;
   const updateEffects = createDiagramEffects(sides);
   function render(){
@@ -92,11 +92,12 @@ try {
     const assembly = T.MathUtils.smoothstep(progress, .76, .88);
     const stacked = narrow.matches;
     const aspect = host.clientWidth / host.clientHeight;
-    const readingDistance = Math.max(1670, 3330 / aspect);
+    const compact = stacked && w <= 380 && h <= 680;
+    const readingDistance = stacked ? Math.max(2400, (compact ? 2300 : 1950) / aspect) : Math.max(1670, 3330 / aspect);
     const diagramDistance = stacked ? Math.max(2820, 2080 / aspect) : readingDistance;
     const distance = T.MathUtils.lerp(readingDistance, diagramDistance, assembly);
-    const lift = -.045;
-    camera.setViewOffset(w, h, w * .195 * (1 - assembly), h * lift, w, h);
+    const lift = stacked ? T.MathUtils.lerp(compact ? .31 : .23, -.045, assembly) : -.045;
+    camera.setViewOffset(w, h, (stacked ? 0 : w * .195 * (1 - assembly)), h * lift, w, h);
     const targetY = -8;
     camera.position.set(distance*Math.cos(elevation)*Math.sin(angle),targetY+8+distance*Math.sin(elevation),distance*Math.cos(elevation)*Math.cos(angle)-22);
     camera.lookAt(0,targetY,-22);

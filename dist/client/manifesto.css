@@ -32,3 +32,7 @@
 .manifesto-page blockquote { margin-inline:0; margin-bottom:0; }
 .manifesto-page .source { font-size:.95rem; }
 .manifesto-page h1 span { display:inline; white-space:normal; }
+@media (max-width:700px) {
+  .manifesto-page { padding:100px clamp(20px,6vw,36px) 64px; }
+  .manifesto-page h1 { font-size:clamp(38px,8vw,48px); margin-bottom:28px; }
+}

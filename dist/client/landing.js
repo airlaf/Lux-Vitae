@@ -19,6 +19,8 @@ const titleWords = splitWords(storyHeading);
 const detailsHeading = document.querySelector('#details-heading');
 const detailsWords = splitWords(detailsHeading);
 const detailCards = [...document.querySelectorAll('.details-grid article')];
+const fixedModelCopy = matchMedia('(max-width:1024px) and (orientation:portrait), (max-height:480px) and (orientation:landscape)');
+const touchLayout = matchMedia('(pointer:coarse)');
 const stackedDetails = matchMedia('(max-width: 700px)');
 let previousY = scrollY;
 let detailHold = null;
@@ -49,6 +51,12 @@ function handleDetailScroll() {
 
   const next = detailCards.find(card => !card.classList.contains('detail-visible'));
   if (!next) return;
+  if (touchLayout.matches) {
+    for (const card of detailCards) {
+      if (card.getBoundingClientRect().top < innerHeight * .9) card.classList.add('detail-visible');
+    }
+    return;
+  }
   const stop = detailStop(next);
   if (y < stop || from > stop + 1) return;
   const cards = stackedDetails.matches ? [next] : detailCards;
@@ -126,7 +134,7 @@ function updateStory() {
   const interactive = section.classList.contains('interactive');
   const height = modelView.clientHeight;
   const progress = Math.max(0, -section.getBoundingClientRect().top / Math.max(1, section.offsetHeight - 4 * height));
-  modelView.querySelector('.story').style.translate = interactive && !reducedMotion.matches
+  modelView.querySelector('.story').style.translate = interactive && !fixedModelCopy.matches && !reducedMotion.matches
     ? '0 ' + ((.48 - progress * .99) * height) + 'px' : '';
   const exitOpacity = Math.min(1, Math.max(0, (.82 - progress) / .065));
   finishPicker.hidden = !interactive || progress <= .38 || progress >= .82;

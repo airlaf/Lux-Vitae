@@ -85,7 +85,8 @@ p { margin: 1.88vw 0 0; font-size: clamp(14px, 1.5vw, 20px); line-height: 1.4; l
 @media (max-width: 700px) {
   .site-header { min-height: 56px; margin: 10px 8px 0; padding: 4px 8px; gap: 4px; }
   .site-header .brand .wordmark { width: clamp(86px, 30vw, 160px); }
-  .site-header nav { gap: 0; font-size: 13px; }
+  .site-header nav { flex:none; gap:0; font-size:13px; }
+  .site-header .brand img:first-child { flex:none; }
   .site-header nav a:not(.pill) { padding-inline: 8px; }
   .site-header nav .pill { padding-inline: 12px; }
   .brand { font-size: 13px; gap: 3px; }
@@ -142,6 +143,9 @@ main p { margin: var(--hero-copy-gap) 0 0; }
 .film-stage { position: relative; flex: 1; min-height: min(34svh, 38vw); }
 .product { position: absolute; top: clamp(-56px, -5.5svh, -16px); pointer-events: none; left: 50%; transform: translateX(-49.1%); height: 200%; width: auto; }
 .film-stage video { display: none; }
+@media (max-width:1024px) and (orientation:portrait) {
+  .product { height:min(200%,84vw); }
+}
 html.intro, html.intro body { overflow: clip; height: 100svh; }
 .rendered .product, .intro .product { opacity: 0; }
 .intro .hero { background: black; }
@@ -157,8 +161,9 @@ html.intro, html.intro body { overflow: clip; height: 100svh; }
 }
 @media (max-width: 700px) {
   .hero { padding-top: 66px; }
-  main { justify-content: flex-end; }
-  .film-stage { flex: 0 0 auto; height: clamp(34vw, 31svh, 42vw); }
+  .hero main { padding-top:clamp(32px,8svh,80px); }
+  .hero main > p { padding-inline:18px; font-size:16px; }
+  .film-stage { margin-top:clamp(16px,4svh,40px); flex:1; }
   .product { top: 0; }
 }
 

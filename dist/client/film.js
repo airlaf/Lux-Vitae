@@ -29,7 +29,7 @@ function paint() {
   const sh = source.videoHeight || source.naturalHeight;
   const stageTop = stage.getBoundingClientRect().top - hero.getBoundingClientRect().top;
   const finalTop = stageTop + still.offsetTop;
-  const finalHeight = 2 * (height - stageTop);
+  const finalHeight = still.offsetHeight;
   const initialHeight = Math.min(finalHeight * .76, height * .8, width * .82);
   const move = ease(progress);
   const filmHeight = initialHeight + (finalHeight - initialHeight) * move;

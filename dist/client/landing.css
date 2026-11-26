@@ -17,7 +17,8 @@
 #signup button { position: absolute; right: 8px; top: 50%; transform: translateY(-50%); background: #303030; color: white; border: 0; border-radius: 10px; padding: 11px 14px; cursor: pointer; }
 #signup output:empty { display: none; }
 @media(max-width:700px) {
-  .waitlist-scene { min-height: 510px; padding-bottom: 24px; }
+  .waitlist-scene { width:100%; aspect-ratio:auto; min-height:clamp(320px,100vw,510px); padding:28px 18px; }
+  #join #join-title { line-height:1.15; margin-bottom:16px; }
 }
 
 @media (max-width:700px) and (prefers-reduced-motion: reduce) {
@@ -155,3 +156,15 @@ html.details-holding, html.details-holding body { overflow-y: hidden; }
 }
 .footer-links h3 { margin: 0 0 6px; color: #686865; font-size: 14px; font-weight: 500; }
 @media (max-width: 720px) { .footer-layout { grid-template-columns: 1fr; gap: 40px; } }
+@media (min-width:701px) and (max-width:900px) and (orientation:portrait) {
+  .details-grid { grid-template-columns:1fr; gap:32px; }
+  .details-grid article { display:grid; grid-template-columns:1fr 1fr; column-gap:28px; align-content:center; }
+  .details-grid img { grid-row:span 2; }
+  .details-grid h3 { align-self:end; }
+  .details-grid p { align-self:start; }
+}
+@media (max-width:700px) {
+  .site-footer { --footer-glass-height:110px; }
+  .footer-links nav { gap:2px; }
+  .footer-links a { display:inline-flex; align-items:center; min-height:44px; }
+}

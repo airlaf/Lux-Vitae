@@ -99,4 +99,8 @@
 .checkout-specs ul { margin:0; padding:0; list-style:none; }
 .checkout-specs li,.checkout-specs .dim { font-size:14px; color:#565650; line-height:1.6; }
 .checkout-specs .k,.checkout-specs .dim small,.checkout-specs .dim b { margin-right:.5em; }
-@media(max-width:760px) { .reserve-layout { grid-template-columns:1fr; gap:28px; } .device-portrait { position:relative; top:0; min-height:0; height:clamp(245px,36svh,400px); } .reservation { padding-top:90px; } .checkout-specs { grid-template-columns:1fr; } }
+@media(max-width:900px) { .reserve-layout { grid-template-columns:1fr; gap:28px; } .device-portrait { position:relative; top:0; min-height:0; height:clamp(245px,36svh,400px); } .reservation { padding-top:90px; } .checkout-specs { grid-template-columns:1fr; } }
+@media (max-width:900px) {
+  .reserve-layout { max-width:640px; margin-inline:auto; }
+  .checkout #signup > label :is(input, select) { font-size:16px; }
+}
