@@ -1,3 +1,5 @@
+const referralSources = new Set(["Friend or colleague", "Instagram", "LinkedIn", "X (Twitter)", "YouTube", "Search engine", "Press or newsletter", "Event or demo", "Other"]);
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
@@ -15,8 +17,18 @@ export default {
       await env.DB.prepare('INSERT INTO announcements (email, consent_at) VALUES (?, ?) ON CONFLICT(email) DO NOTHING')
         .bind(email, new Date().toISOString()).run();
     } else {
-      await env.DB.prepare('INSERT INTO signups (email, name, interest, consent_at, finish) VALUES (?, ?, ?, ?, ?) ON CONFLICT(email) DO UPDATE SET finish = COALESCE(excluded.finish, signups.finish)')
-        .bind(email, name, 'waitlist', new Date().toISOString(), finish).run();
+      const referral = String(form.get('referral_source') || '').trim() || null;
+      const profession = String(form.get('profession') || '').trim() || null;
+      if ((referral && !referralSources.has(referral)) || (profession && profession.length > 100)) {
+        return Response.json({ok: false}, {status: 400});
+      }
+      await env.DB.prepare(`INSERT INTO signups (email, name, interest, consent_at, finish, referral_source, profession)
+        VALUES (?, ?, ?, ?, ?, ?, ?)
+        ON CONFLICT(email) DO UPDATE SET
+          finish = COALESCE(excluded.finish, signups.finish),
+          referral_source = COALESCE(excluded.referral_source, signups.referral_source),
+          profession = COALESCE(excluded.profession, signups.profession)`)
+        .bind(email, name, 'waitlist', new Date().toISOString(), finish, referral, profession).run();
     }
     return Response.json({ok: true});
   }
