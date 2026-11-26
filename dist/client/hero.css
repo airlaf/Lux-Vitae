@@ -5,7 +5,10 @@
   font-style: normal;
   font-display: swap;
 }
-.hero h1 { color: #52473d; font-family: "Neue Haas Grotesk Display", Arial, sans-serif; }
+:root { --heading-color: #52473D; --subtitle-color: #70655C; }
+h1, h2, h3, legend, summary { color: var(--heading-color); }
+.hero main > p { color: var(--subtitle-color); }
+.hero h1 { font-family: "Neue Haas Grotesk Display", Arial, sans-serif; }
 .hero h1 span { display: block; white-space: nowrap; }
 * { box-sizing: border-box; }
 body { margin: 0; color: #080808; background: white; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
@@ -32,7 +35,7 @@ body { margin: 0; color: #080808; background: white; font-family: "Helvetica Neu
 }
 .site-header .brand { gap: 0; min-width: 0; }
 .site-header nav { gap: clamp(4px, 1vw, 16px); font: 400 15px/1.2 Geist, sans-serif; }
-.site-header nav a { color: #52473d; display: inline-grid; place-items: center; min-height: 44px; border-radius: 100px; white-space: nowrap; }
+.site-header nav a { color: var(--heading-color); display: inline-grid; place-items: center; min-height: 44px; border-radius: 100px; white-space: nowrap; }
 .site-header nav a:not(.pill) { padding-inline: clamp(9px, 1.4vw, 22px); }
 .site-header nav a:not(.pill):hover { opacity: .62; text-decoration: none; }
 .site-header.nav-away:not(:has(:focus-visible)) { transform: translateY(calc(-100% - 24px)); }

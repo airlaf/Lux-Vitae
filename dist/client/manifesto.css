@@ -30,5 +30,5 @@
 .manifesto-page footer a { font:400 .9rem/1.5 Geist,sans-serif; color:#54554e; text-underline-offset:4px; }
 
 .manifesto-page blockquote { margin-inline:0; margin-bottom:0; }
-.manifesto-page .source { font-size:.95rem; }
+.manifesto-page .source { color:var(--subtitle-color); font-size:.95rem; }
 .manifesto-page h1 span { display:inline; white-space:normal; }

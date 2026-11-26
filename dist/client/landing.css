@@ -47,7 +47,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(165deg, #100d0a47, transparent 48%, #100d0a44);
+  background: linear-gradient(165deg, #fffaf2dc, transparent 48%, #fffaf2e8);
   pointer-events: none;
 }
 .human-film h2, .human-film p { position: absolute; z-index: 1; margin: 0; pointer-events: none; }
@@ -56,7 +56,7 @@
   font: 400 42px/100px "Neue Haas Grotesk Display", Arial, sans-serif;
 }
 .human-film p {
-  right: 3.95%; bottom: 6.28%; width: min(542px, 72%);
+  color: var(--subtitle-color); right: 3.95%; bottom: 6.28%; width: min(542px, 72%);
   text-align: right; font: 400 21px/30px Geist, sans-serif; letter-spacing: normal;
 }
 @media (max-width: 700px) {
@@ -85,7 +85,7 @@ html.details-holding, html.details-holding body { overflow-y: hidden; }
   font-family: Geist, sans-serif;
 }
 .product-details h2 { margin: 0; font: 400 42px/100px "Neue Haas Grotesk Display", Arial, sans-serif; }
-.product-details p { margin: 0; letter-spacing: normal; color: #6b6b6b; }
+.product-details p { margin: 0; letter-spacing: normal; color: var(--subtitle-color); }
 .product-details .details-intro { max-width: 619px; font-size: 21px; line-height: 28px; }
 .details-grid {
   display: grid;
@@ -138,7 +138,7 @@ html.details-holding, html.details-holding body { overflow-y: hidden; }
 .footer-brand .wordmark { width: clamp(190px, 16vw, 250px); }
 .footer-layout { margin-top: clamp(28px, 4vw, 62px); display: grid; grid-template-columns: 1fr 1fr; gap: 8vw; }
 .footer-layout h2 { margin: 0; font: 400 clamp(32px, 3vw, 48px)/1.1 "Neue Haas Grotesk Display", Arial, sans-serif; letter-spacing: -.035em; }
-.footer-layout p { margin: 14px 0 24px; color: #626260; font-size: 16px; }
+.footer-layout p { margin: 14px 0 24px; color: var(--subtitle-color); font-size: 16px; }
 .updates-field { display: flex; max-width: 400px; border: 1px solid #d8d7d4; border-radius: 10px; background: #fafaf9; }
 .updates-field:focus-within { outline: 2px solid #626969; outline-offset: 2px; }
 .updates-field input { flex: 1; width: 0; border: 0; padding: 14px 16px; background: transparent; font: inherit; outline: none; }
@@ -147,5 +147,5 @@ html.details-holding, html.details-holding body { overflow-y: hidden; }
 #updates output { display: block; margin-top: 8px; font-size: 14px; }
 .footer-links { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
 .footer-links nav { margin: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 12px; font: 400 16px/1.45 Geist, sans-serif; }
-.footer-links h3 { margin: 0 0 6px; color: #686865; font-size: 14px; font-weight: 500; }
+.footer-links h3 { margin: 0 0 6px; color: var(--heading-color); font-size: 14px; font-weight: 500; }
 @media (max-width: 720px) { .footer-layout { grid-template-columns: 1fr; gap: 40px; } }

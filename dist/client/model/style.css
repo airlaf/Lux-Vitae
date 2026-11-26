@@ -12,15 +12,15 @@ html, body { margin: 0; background: white }
 .story, .callouts { position:absolute; z-index:1; font-family:"Helvetica Neue",Arial,sans-serif; color:#171817; pointer-events:none }
 .story { --copy-gap:clamp(28px,4.5svh,48px); font-family:Geist, sans-serif; left:62%; width:min(36%, 410px); top:50%; transform:translateY(-50%); opacity:1 }
 .interactive .story { left:var(--story-left, 62%); max-width:calc(98% - var(--story-left, 62%)) }
-.story p { font-size:18px; letter-spacing:-.025em; line-height:1.42; margin:var(--copy-gap) 0 0 }
+.story p { color:var(--subtitle-color); font-size:18px; letter-spacing:-.025em; line-height:1.42; margin:var(--copy-gap) 0 0 }
 .story p:first-child { margin-top:0 }
 #view #poster { left:0; width:49% }
 .story-line { display:block }
 .callouts { inset:0 }
 .callouts svg { position:absolute; inset:0; width:100%; height:100%; overflow:hidden }
 .callouts path { stroke:#777771; stroke-width:1; stroke-dasharray:1.7 4; stroke-linecap:round; fill:none }
-.callouts span { position:absolute; max-width:17.5%; font-size:clamp(12px,1.1vw,18px); line-height:1.22; letter-spacing:-.025em; transform:translateY(-50%); background:#fff }
-.callouts small { display:block; margin-top:4px; max-width:28ch; color:#585853; font:400 clamp(11px,.87vw,14px)/1.35 Geist,sans-serif; letter-spacing:normal }
+.callouts span { color:var(--heading-color); position:absolute; max-width:17.5%; font-size:clamp(12px,1.1vw,18px); line-height:1.22; letter-spacing:-.025em; transform:translateY(-50%); background:#fff }
+.callouts small { display:block; margin-top:4px; max-width:28ch; color:var(--subtitle-color); font:400 clamp(11px,.87vw,14px)/1.35 Geist,sans-serif; letter-spacing:normal }
 .callouts span:nth-of-type(-n+2) { left:4% }
 .callouts span:nth-of-type(n+3) { right:4%; text-align:left }
 @media(max-width:700px) and (orientation:portrait) {
