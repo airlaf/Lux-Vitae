@@ -5,8 +5,7 @@ function attachTrail(surface) {
   const layer = surface.querySelector('.trail-flutes');
   const shadows = Array.from(layer.children, element => ({element, x:0, y:0}));
   let drawOptics;
-  const isHero = surface.classList.contains('hero');
-  let lastClientX, lastClientY, idleTimer;
+  let lastClientX, lastClientY;
   let x = 0, y = 0, strength = 0, hovering = false, frame = 0, lastTime = 0;
 
   function draw(time) {
@@ -39,7 +38,6 @@ function attachTrail(surface) {
     }
   }
   function leave() {
-    clearTimeout(idleTimer);
     if (!hovering) return;
     hovering = false;
     wake();
@@ -55,17 +53,11 @@ function attachTrail(surface) {
     lastClientX = event.clientX;
     lastClientY = event.clientY;
     if (!moved) return;
-    if (isHero && (document.documentElement.classList.contains('intro') ||
-        !document.documentElement.classList.contains('rendered'))) return;
     const bounds = surface.getBoundingClientRect();
     x = event.clientX - bounds.left;
     y = event.clientY - bounds.top;
     if (!hovering && strength < .01) shadows.forEach(shadow => { shadow.x = x; shadow.y = y; });
     hovering = true;
-    if (isHero) {
-      clearTimeout(idleTimer);
-      idleTimer = setTimeout(leave, 160);
-    }
     wake();
   }, {passive:true});
   surface.addEventListener('pointerleave', leave);
@@ -74,4 +66,4 @@ function attachTrail(surface) {
   enabled.addEventListener('change', leave);
 }
 
-document.querySelectorAll('.hero, .footer-glass').forEach(attachTrail);
+document.querySelectorAll('.footer-glass').forEach(attachTrail);

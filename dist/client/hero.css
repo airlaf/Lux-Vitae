@@ -100,7 +100,7 @@ p { margin: 1.88vw 0 0; font-size: clamp(14px, 1.5vw, 20px); line-height: 1.4; l
 
 .hero { padding-top: 80px; position: relative; isolation: isolate; overflow: hidden; min-height: 100svh; display: flex; flex-direction: column; background: #f0ebec; }
 .studio { position: absolute; inset: 0; width: 100%; height: 100%; z-index: -2; }
-.hero::before, .glass-trail {
+.hero::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -129,11 +129,21 @@ p { margin: 1.88vw 0 0; font-size: clamp(14px, 1.5vw, 20px); line-height: 1.4; l
     radial-gradient(ellipse 24% 80% at 100% 13%, #544c433d, transparent);
   background-size: 100% 100%, 100% 100%, 100% 100%, var(--flute-pitch) 100%, 100% 100%, 100% 100%;
 }
-.hero .trail-flutes { mask-size: var(--flute-pitch) 100%; }
-.glass-trail { display:none; overflow:hidden; }
-@media (any-hover:hover) and (any-pointer:fine) and (prefers-reduced-motion:no-preference) {
-  .glass-trail { display:block; }
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background: url("foliage-shadow.jpg") center 46% / cover no-repeat;
+  filter: grayscale(1) sepia(.72) contrast(1.26) blur(2px);
+  mix-blend-mode: multiply;
+  opacity: .78;
+  mask-image:
+    radial-gradient(ellipse 48% 84% at 0% 40%, black, transparent),
+    radial-gradient(ellipse 39% 74% at 100% 8%, #000c, transparent);
 }
+.intro .hero::after { opacity: calc(.78 * var(--glass-opacity, 0)); }
 .glass-optics { position:absolute; left:0; top:0; pointer-events:none; mask-image:radial-gradient(ellipse closest-side,black 8%,#000b 48%,transparent 100%); }
 .trail-flutes {
   position:absolute; inset:0; opacity:0;
@@ -144,7 +154,7 @@ p { margin: 1.88vw 0 0; font-size: clamp(14px, 1.5vw, 20px); line-height: 1.4; l
   position:absolute; top:0; left:0; width:clamp(230px,27vw,400px); aspect-ratio:1.25;
   border-radius:50%; background:radial-gradient(ellipse, rgb(133 125 117 / 32%) 0%, rgb(161 151 141 / 23%) 30%, rgb(189 179 168 / 11%) 52%, transparent 75%);
 }
-.intro .glass-trail, .intro .hero::before { opacity: var(--glass-opacity, 0); }
+.intro .hero::before { opacity: var(--glass-opacity, 0); }
 main { flex: 1; display: flex; flex-direction: column; padding-top: clamp(32px, 5vw, 72px); }
 main { --hero-copy-gap: clamp(17px, 2.6svh, 28px); }
 main p { margin: var(--hero-copy-gap) 0 0; }
