@@ -111,3 +111,21 @@ if (page.classList.contains('intro') && ctx) {
   video.playbackRate = 1.25;
   video.play().catch(finish);
 } else if (page.classList.contains('intro')) finish();
+
+const daylight = hero.querySelector('.glass-daylight');
+const responsiveLight = matchMedia('(any-hover: hover) and (any-pointer: fine) and (prefers-reduced-motion: no-preference)');
+function centerDaylight() {
+  daylight.style.removeProperty('--light-x');
+  daylight.style.removeProperty('--light-y');
+}
+hero.addEventListener('pointermove', event => {
+  if (!responsiveLight.matches || event.pointerType === 'touch' || page.classList.contains('intro')) return;
+  const bounds = hero.getBoundingClientRect();
+  const x = (event.clientX - bounds.left) / bounds.width - .5;
+  const y = (event.clientY - bounds.top) / bounds.height - .5;
+  daylight.style.setProperty('--light-x', (x * 6).toFixed(2) + '%');
+  daylight.style.setProperty('--light-y', (y * 4).toFixed(2) + '%');
+}, { passive: true });
+hero.addEventListener('pointerleave', centerDaylight);
+window.addEventListener('blur', centerDaylight);
+responsiveLight.addEventListener('change', centerDaylight);

@@ -119,15 +119,29 @@ p { margin: 1.88vw 0 0; font-size: clamp(14px, 1.5vw, 20px); line-height: 1.4; l
 .hero { --flute-pitch: clamp(10px, 1.08vw, 18px); }
 .hero::before {
   background-image:
-    radial-gradient(ellipse 36% 57% at 47% 20%, #fffaf491, transparent),
-    radial-gradient(ellipse 19% 54% at 78% 32%, #fffdf3a8, transparent),
-    linear-gradient(154deg, transparent 24%, #fffcf52e 37%, #fffffa70 42%,
+    linear-gradient(154deg, transparent 24%, #fffcf51c 37%, #fffffa34 42%,
       transparent 51%, #7765531c 66%, transparent 79%),
     linear-gradient(90deg, #52473d1c, #6956470a 13%, transparent 30%,
       transparent 76%, #fffdf622 85%, #fffefa70 89%, transparent 95%),
     radial-gradient(ellipse 36% 64% at 1% 67%, #80644d45, transparent),
     radial-gradient(ellipse 24% 80% at 100% 13%, #544c433d, transparent);
-  background-size: 100% 100%, 100% 100%, 100% 100%, var(--flute-pitch) 100%, 100% 100%, 100% 100%;
+  background-size: 100% 100%, var(--flute-pitch) 100%, 100% 100%, 100% 100%;
+}
+.glass-daylight {
+  position: absolute;
+  inset: -4%;
+  z-index: -2;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 32% 62% at 74% 22%, #fff8eaa3, transparent),
+    radial-gradient(ellipse 48% 45% at 41% 32%, #fffdf740, transparent);
+}
+.intro .glass-daylight { opacity: var(--glass-opacity, 0); }
+@media (any-hover: hover) and (any-pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .glass-daylight {
+    transform: translate(var(--light-x, 0%), var(--light-y, 0%));
+    transition: transform 650ms ease-out;
+  }
 }
 .foliage-shadow {
   --shadow-opacity: .56;
