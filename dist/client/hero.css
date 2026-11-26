@@ -45,8 +45,8 @@ a:focus-visible { outline: 2px solid #315965; outline-offset: 4px; }
 .brand { display: flex; align-items: center; gap: 4px; font: 14px "Times New Roman", serif; white-space: nowrap; }
 .brand img:first-child { width: 20px; height: auto; }
 nav { display: flex; align-items: center; gap: clamp(22px, 3.3vw, 40px); font-size: 13px; }
-nav a:not(.pill):hover { text-decoration: underline; text-underline-offset: .3em; }
 .pill {
+  color: var(--heading-color);
   position: relative; isolation: isolate; display: inline-grid; place-items: center;
   width: 148px; height: 46px; border-radius: 100px; font: inherit; font-size: 16px;
   border: 1px solid #ffffffb8;
