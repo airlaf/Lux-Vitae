@@ -169,14 +169,15 @@ html.intro, html.intro body { overflow: clip; height: 100svh; }
 }
 @media (max-width: 700px) and (orientation: portrait) {
   .hero { min-height: 100dvh; }
-  .hero main { justify-content: flex-end; padding-top: 32px; }
-  .hero .film-stage {
-    flex: none;
-    height: 58vw;
-    min-height: 0;
-    margin-top: clamp(8px, 2vw, 14px);
+  .hero main {
+    --film-height: min(82vw, 55svh);
+    padding-top: clamp(24px, calc(40svh - 33vw - 90px), 110px);
   }
-  .hero .product { top: 0; height: 88vw; }
+  .hero .film-stage {
+    min-height: calc(var(--film-height) + min(12vw, 10svh));
+    margin-top: 4px;
+  }
+  .hero .product { top: 0; height: var(--film-height); }
 }
 
 .film-stage::after {
