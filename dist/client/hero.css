@@ -161,10 +161,11 @@ html.intro, html.intro body { overflow: clip; height: 100svh; }
 }
 @media (max-width: 700px) {
   .hero { padding-top: 66px; }
-  .hero main { padding-top:clamp(32px,8svh,80px); }
+  .hero main { padding-top:clamp(32px,16svh,140px); }
   .hero main > p { padding-inline:18px; font-size:16px; }
   .film-stage { margin-top:clamp(16px,4svh,40px); flex:1; }
-  .product { top: 0; }
+  .product { top: max(0px, calc(100% - 46vw)); }
+  .hero .film-stage::after { height:min(12vw,10svh); }
 }
 
 .film-stage::after {

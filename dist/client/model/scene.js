@@ -96,7 +96,9 @@ try {
     const readingDistance = stacked ? Math.max(2400, (compact ? 2300 : 1950) / aspect) : Math.max(1670, 3330 / aspect);
     const diagramDistance = stacked ? Math.max(2820, 2080 / aspect) : readingDistance;
     const distance = T.MathUtils.lerp(readingDistance, diagramDistance, assembly);
-    const lift = stacked ? T.MathUtils.lerp(compact ? .31 : .23, -.045, assembly) : -.045;
+    // Start centered. Make room above the copy before its first words appear.
+    const readingLift = T.MathUtils.smoothstep(progress, .09, .19) * (compact ? .335 : .265);
+    const lift = stacked ? T.MathUtils.lerp(readingLift, 0, assembly) : -.045;
     camera.setViewOffset(w, h, (stacked ? 0 : w * .195 * (1 - assembly)), h * lift, w, h);
     const targetY = -8;
     camera.position.set(distance*Math.cos(elevation)*Math.sin(angle),targetY+8+distance*Math.sin(elevation),distance*Math.cos(elevation)*Math.cos(angle)-22);

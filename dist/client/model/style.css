@@ -25,10 +25,10 @@ html, body { margin: 0; background: white }
 .callouts span:nth-of-type(-n+2) { left:4% }
 .callouts span:nth-of-type(n+3) { right:4%; text-align:left }
 @media(max-width:1024px) and (orientation:portrait) {
-  .interactive #view { margin-top: max(-132px, -16svh); }
+  .interactive #view { margin-top:0; }
   #view #poster {width:100%;top:9%;height:40%}
   .story { left:7%; width:86%; top:49%; transform:none }
-  .interactive .story, .story { --copy-gap:clamp(10px,2svh,22px); left:50%; width:calc(100% - 40px); max-width:540px; top:45%; transform:translateX(-50%) }
+  .interactive .story, .story { --copy-gap:clamp(10px,2svh,22px); left:50%; width:calc(100% - 40px); max-width:540px; top:48%; transform:translateX(-50%) }
   .story p {font-size:clamp(15px,2.2vw,18px); line-height:1.4}
   .frame-finishes { margin-top:var(--copy-gap); }
   .frame-finishes legend { margin-bottom:2px; }

@@ -1,10 +1,10 @@
 .checkout { font-family:Geist,Arial,sans-serif; color:#23231f; }
 .reservation { display:block; text-align:left; max-width:1480px; margin:auto; padding:clamp(112px,10vw,158px) clamp(22px,5vw,84px) 0; }
 .reserve-layout { display:grid; grid-template-columns:minmax(0,1.15fr) minmax(0,1fr); align-items:start; gap:clamp(34px,7vw,110px); }
-.device-portrait { position:sticky; top:98px; margin:0; display:grid; justify-items:center; align-content:center; min-height:480px; height:min(70svh,730px); border-radius:20px; background:radial-gradient(ellipse at 60% 38%,#fff 4%,#f7f6f2 65%,#eeede8); }
-.device-portrait img { width:80%; height:82%; position:absolute; top:6%; object-fit:contain; }
+.device-portrait { position:sticky; top:98px; margin:0; display:grid; justify-items:center; grid-template-rows:minmax(0,1fr) auto; gap:14px; padding:20px 0; min-height:480px; height:min(70svh,730px); border-radius:20px; background:radial-gradient(ellipse at 60% 38%,#fff 4%,#f7f6f2 65%,#eeede8); }
+.device-portrait img { width:80%; height:100%; min-height:0; object-fit:contain; }
 .device-portrait img.bronze { filter:sepia(.55) saturate(.85) brightness(.92); }
-.device-portrait figcaption { position:absolute; bottom:24px; color:#595951; font-size:13px; }
+.device-portrait figcaption { color:#595951; font-size:13px; }
 .device-portrait figcaption > [aria-hidden="true"] { padding:0 9px; color:#a5a299; }
 .reservation h1,.reservation h2 { text-wrap:initial; font:400 clamp(40px,4.5vw,72px)/1.02 "Neue Haas Grotesk Display", Arial, sans-serif; letter-spacing:-.04em; margin:0; }
 #reserve-title img { display:block; width:min(100%, clamp(200px, 23vw, 340px)); height:auto; }

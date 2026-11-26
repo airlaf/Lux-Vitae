@@ -20,16 +20,21 @@ export function createStory(host) {
       half+12,host.clientHeight-half-12);
     label.style.top=labelY+'px';
     const bounds=label.getBoundingClientRect();
-    const left=active<2;
-    const endX=(left?bounds.right:bounds.left)-host.getBoundingClientRect().left+(left?7:-7);
-    const elbow=left?Math.min(endX+24,x):Math.max(endX-24,x);
-    const diagonal=Math.hypot(elbow-x,labelY-y);
+    // Approach the nearest exterior edge, even when a part projects above
+    // or below its caption in the portrait layout.
+    const hostLeft=host.getBoundingClientRect().left;
+    const left=bounds.left-hostLeft-8, right=bounds.right-hostLeft+8;
+    const endX=MathUtils.clamp(x,left,right);
+    const beside=x<left || x>right;
+    const endY=beside ? labelY : MathUtils.clamp(y,labelY-half-8,labelY+half+8);
+    const elbow=beside ? endX + Math.sign(x-endX)*Math.min(24,Math.abs(x-endX)) : x;
+    const diagonal=Math.hypot(elbow-x,endY-y);
     const progress=reducedMotion?1:MathUtils.smoothstep(phase,0,.28);
     const length=progress*(diagonal+Math.abs(endX-elbow));
     const t=diagonal?Math.min(1,length/diagonal):1;
-    let line='M '+x+' '+y+' L '+MathUtils.lerp(x,elbow,t)+' '+MathUtils.lerp(y,labelY,t);
+    let line='M '+x+' '+y+' L '+MathUtils.lerp(x,elbow,t)+' '+MathUtils.lerp(y,endY,t);
     if(length>diagonal) line+=' H '+(elbow+Math.sign(endX-elbow)*(length-diagonal));
-    path.setAttribute('d',progress?line:'');
+    path.setAttribute('d',length?line:'');
     const opacity=reducedMotion||active===labels.length-1?1:1-MathUtils.smoothstep(phase,.88,1);
     path.style.opacity=String(opacity);
     label.style.opacity=String(opacity*(reducedMotion?1:MathUtils.smoothstep(phase,.28,.40)));
