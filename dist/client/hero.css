@@ -30,6 +30,7 @@ body { margin: 0; color: #080808; background: white; font-family: "Helvetica Neu
   box-shadow: inset 0 1px 1px #ffffffdb, inset 0 -1px 2px #87949742, 0 6px 24px #29373f12;
 }
 .site-header .brand { gap: 0; min-width: 0; }
+.site-header nav, .hero-action .pill { text-transform: uppercase; }
 .site-header nav { gap: clamp(4px, 1vw, 16px); font: 400 15px/1.2 Geist, sans-serif; }
 .site-header nav a { display: inline-grid; place-items: center; min-height: 44px; border-radius: 100px; white-space: nowrap; }
 .site-header nav a:not(.pill) { padding-inline: clamp(9px, 1.4vw, 22px); }
