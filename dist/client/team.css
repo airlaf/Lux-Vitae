@@ -16,7 +16,7 @@
 .team-roster { display:flex; gap:clamp(16px,2.5vw,40px); margin:0; padding:0; list-style:none; }
 .team-roster li { flex:0 0 min(30vw,420px,58svh); }
 .portrait { aspect-ratio:4/3; position:relative; overflow:hidden; border-radius:12px; background:#f6f3ee; }
-.portrait img { display:block; position:absolute; left:50%; top:36%; width:var(--image-width); max-width:none; height:auto; transform:translate(calc(-1 * var(--eyes-x)),calc(-1 * var(--eyes-y))); }
+.portrait img { display:block; position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
 .portrait .sand { opacity:0; pointer-events:none; }
 .person { display:flex; justify-content:space-between; align-items:center; gap:12px; padding:16px 1px 0; }
 .person h3 { font-size:clamp(26px,2.4vw,38px); }
@@ -31,7 +31,7 @@
 }
 
 .portrait {
-  mask-image:linear-gradient(to right, transparent, black clamp(20px,5vw,84px), black calc(100% - clamp(20px,5vw,84px)), transparent);
+  mask-image:linear-gradient(to right, transparent, black min(var(--left-travel,0px),clamp(20px,5vw,84px)), black calc(100% - clamp(20px,5vw,84px)), transparent);
   mask-size:var(--window-width,100%) 100%;
   mask-position:var(--edge-offset,0px) 0;
   mask-repeat:no-repeat;

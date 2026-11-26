@@ -24,6 +24,7 @@ function update() {
   }
   const bounds = viewport.getBoundingClientRect();
   viewport.style.setProperty('--window-width', bounds.width + 'px');
+  viewport.style.setProperty('--left-travel', Math.max(0, viewport.scrollLeft) + 'px');
   previous.disabled = viewport.scrollLeft <= 1;
   next.disabled = viewport.scrollLeft >= viewport.scrollWidth - viewport.clientWidth - 1;
   for (const card of cards) {
