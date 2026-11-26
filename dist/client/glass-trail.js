@@ -5,7 +5,8 @@ function attachTrail(surface) {
   const layer = surface.querySelector('.trail-flutes');
   const shadows = Array.from(layer.children, element => ({element, x:0, y:0}));
   let drawOptics;
-  let lastClientX, lastClientY;
+  const isHero = surface.classList.contains('hero');
+  let lastClientX, lastClientY, idleTimer;
   let x = 0, y = 0, strength = 0, hovering = false, frame = 0, lastTime = 0;
 
   function draw(time) {
@@ -38,8 +39,10 @@ function attachTrail(surface) {
     }
   }
   function leave() {
+    clearTimeout(idleTimer);
+    if (!hovering) return;
     hovering = false;
-    if (strength > .005) wake();
+    wake();
   }
   surface.addEventListener('pointermove', event => {
     if (!enabled.matches || event.pointerType === 'touch' || event.target.closest('a,button')) {
@@ -47,16 +50,22 @@ function attachTrail(surface) {
       return;
     }
     // Browsers can report the resting pointer when the page appears beneath it.
-    const moved = event.movementX || event.movementY ||
-      (lastClientX !== undefined && (event.clientX !== lastClientX || event.clientY !== lastClientY));
+    const moved = lastClientX !== undefined &&
+      (event.clientX !== lastClientX || event.clientY !== lastClientY);
     lastClientX = event.clientX;
     lastClientY = event.clientY;
     if (!moved) return;
+    if (isHero && (document.documentElement.classList.contains('intro') ||
+        !document.documentElement.classList.contains('rendered'))) return;
     const bounds = surface.getBoundingClientRect();
     x = event.clientX - bounds.left;
     y = event.clientY - bounds.top;
     if (!hovering && strength < .01) shadows.forEach(shadow => { shadow.x = x; shadow.y = y; });
     hovering = true;
+    if (isHero) {
+      clearTimeout(idleTimer);
+      idleTimer = setTimeout(leave, 160);
+    }
     wake();
   }, {passive:true});
   surface.addEventListener('pointerleave', leave);
