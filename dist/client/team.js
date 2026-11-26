@@ -1,3 +1,5 @@
+import {createPixelMask} from './pixel-mask.js';
+
 const viewport = document.querySelector('.roster-window');
 const controls = document.querySelector('.roster-controls');
 const [previous, next] = controls.querySelectorAll('button');
@@ -41,3 +43,39 @@ window.addEventListener('scroll', update, {passive:true});
 new ResizeObserver(update).observe(viewport);
 motion.addEventListener('change', update);
 update();
+
+const studio = document.querySelector('.studio-photo');
+const image = studio.querySelector('img');
+const canvas = studio.querySelector('canvas');
+const ctx = canvas.getContext('2d');
+if (ctx) image.decode().then(() => {
+  canvas.width = image.naturalWidth;
+  canvas.height = image.naturalHeight;
+  const maskAt = createPixelMask(Math.round(512 * canvas.height / canvas.width));
+  let previousProgress = -1;
+  let frame = 0;
+  function paintStudio() {
+    frame = 0;
+    const bounds = studio.getBoundingClientRect();
+    const start = Math.min(bounds.top + scrollY, innerHeight * .5);
+    const travel = Math.max(1, Math.min(innerHeight * .7, bounds.height * .85));
+    const progress = motion.matches ? 1 : Math.max(0, Math.min(1, (start - bounds.top) / travel));
+    if (progress === previousProgress) return;
+    previousProgress = progress;
+    canvas.hidden = progress === 0;
+    if (canvas.hidden) return;
+    ctx.globalCompositeOperation = 'source-over';
+    ctx.drawImage(image, 0, 0);
+    if (progress < 1) {
+      ctx.globalCompositeOperation = 'destination-in';
+      ctx.drawImage(maskAt(progress), 0, 0, canvas.width, canvas.height);
+    }
+  }
+  function scheduleStudio() {
+    if (!frame) frame = requestAnimationFrame(paintStudio);
+  }
+  window.addEventListener('scroll', scheduleStudio, {passive:true});
+  window.addEventListener('resize', scheduleStudio);
+  motion.addEventListener('change', scheduleStudio);
+  paintStudio();
+}).catch(() => { canvas.hidden = true; });
