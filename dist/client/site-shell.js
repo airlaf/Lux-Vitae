@@ -5,6 +5,7 @@ window.addEventListener('scroll', () => {
   const delta = y - navScrollY;
   if (y > 32 && Math.abs(delta) < 5) return;
   siteHeader.classList.toggle('nav-away', y > 32 && delta > 0);
+  siteHeader.classList.toggle('nav-glass', y > 32 && delta < 0);
   navScrollY = y;
 }, {passive: true});
 
