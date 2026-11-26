@@ -115,18 +115,19 @@ p { margin: 1.88vw 0 0; font-size: clamp(14px, 1.5vw, 20px); line-height: 1.4; l
       transparent calc(50% + var(--screen-radius, 34vw) - 4vw),
       rgb(0 0 0 / 80%) calc(50% + var(--screen-radius, 34vw) + 5vw));
 }
-/* One rounded rib catches a narrow reflection beside a deeper amber groove. */
+/* Broad reflections cross the flutes, leaving only a fine highlight at each lip. */
 .hero { --flute-pitch: clamp(10px, 1.08vw, 18px); }
 .hero::before {
   background-image:
-    radial-gradient(ellipse at 49% 18%, #fff9f37a, transparent 53%),
-    linear-gradient(90deg, #52473d44, #79624d20 11%, transparent 38%,
-      #fff9ec30 67%, #fffdf2a6 78%, #52473d36 95%, #52473d44),
-    linear-gradient(90deg, #52473d42, #6956472e 9%, #806b5210 24%,
-      transparent 46%, #fff7e424 68%, #fffdf67d 85%, #fffff5ad 89%,
-      #f9e8ce42 94%, #52473d35),
-    radial-gradient(ellipse at 8% 76%, #98765840, transparent 52%);
-  background-size: 100% 100%, 100% 100%, var(--flute-pitch) 100%, 100% 100%;
+    radial-gradient(ellipse 36% 57% at 47% 20%, #fffaf491, transparent),
+    radial-gradient(ellipse 19% 54% at 78% 32%, #fffdf3a8, transparent),
+    linear-gradient(154deg, transparent 24%, #fffcf52e 37%, #fffffa70 42%,
+      transparent 51%, #7765531c 66%, transparent 79%),
+    linear-gradient(90deg, #52473d1c, #6956470a 13%, transparent 30%,
+      transparent 76%, #fffdf622 85%, #fffefa70 89%, transparent 95%),
+    radial-gradient(ellipse 36% 64% at 1% 67%, #80644d45, transparent),
+    radial-gradient(ellipse 24% 80% at 100% 13%, #544c433d, transparent);
+  background-size: 100% 100%, 100% 100%, 100% 100%, var(--flute-pitch) 100%, 100% 100%, 100% 100%;
 }
 .hero .trail-flutes { mask-size: var(--flute-pitch) 100%; }
 .glass-trail { display:none; overflow:hidden; }
