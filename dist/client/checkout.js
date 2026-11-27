@@ -1,9 +1,15 @@
 const render = document.querySelector('#checkout-render');
 const caption = document.querySelector('#finish-name');
+const detailImages = document.querySelectorAll('.finish-details img');
 function updatePreview() {
   const bronze = document.querySelector('input[name="finish"]:checked').value === 'bronze';
   const name = bronze ? 'Bacchus Bronze' : 'Stellaris Steel';
-  render.classList.toggle('bronze', bronze);
+  const finish = bronze ? 'bronze' : 'steel';
+  render.src = `preview/${finish}-device.jpg`;
+  for (const image of detailImages) {
+    image.src = `preview/${finish}-${image.dataset.detail}.jpg`;
+    image.alt = `${image.dataset.description} in ${name}`;
+  }
   render.alt = 'ANTIK in ' + name;
   caption.textContent = name;
 }
