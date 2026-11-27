@@ -87,7 +87,8 @@
 .finish-preview { margin-top:var(--section-gap); }
 .finish-details { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:clamp(12px,2vw,28px); margin-top:24px; }
 .finish-details img { display:block; width:100%; aspect-ratio:3/4; object-fit:cover; border-radius:12px; }
-@media(max-width:600px) { .finish-details { grid-template-columns:1fr; } }
+.finish-details p { margin:0; font-weight:300; line-height:1.3; }
+@media(max-width:600px) { .finish-details { grid-template-columns:1fr; gap:32px; } }
 .reserve-information { max-width:880px; margin:var(--section-gap) auto 0; }
 .reservation h2 { font-size:clamp(32px,3vw,48px); }
 .bens { border-collapse:collapse; width:100%; margin:30px 0; font-size:clamp(13px,1.2vw,16px); }
